@@ -35,6 +35,9 @@ char host_name[80];
 
 esp_netif_t *eth_netif;
 
+QueueHandle_t xQueue_switch;
+info_rele_t info_rele; 
+
 void init_main( void );
 
 
@@ -76,4 +79,5 @@ void init_main( void ){
 	
 	strcpy(host_name, "G4T Online");
 
+		xQueue_switch = xQueueCreate( 5, sizeof(info_rele) );
 }

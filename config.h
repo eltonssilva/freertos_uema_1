@@ -5,6 +5,8 @@
 #include "freertos/task.h"
 #include "freertos/queue.h"  
 
+extern QueueHandle_t xQueue_switch;
+
 extern EventGroupHandle_t event_group;
 char mac_address_root_str[18];
 extern char host_name[80]; 
@@ -40,5 +42,12 @@ QueueHandle_t xQueuePubMQTT;
 #define MQTT_PASSWORD "comida05"
 #define MQTT_PORTA   "1883"
 
+typedef struct {
+	int rele;
+  bool value;
+  
+} info_rele_t;
+
+extern info_rele_t info_rele;
 
 #endif  //!__CONFIG__H__
